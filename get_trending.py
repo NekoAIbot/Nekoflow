@@ -1,11 +1,18 @@
 from pytrends.request import TrendReq
 
-# Step 1: Connect to Google
-pytrends = TrendReq(hl='en-US', tz=360)
+def fetch_trending_topics(region='nigeria'):
+    # Google Trends fallback (static mock for now)
+    print("⚠️ Google Trends not available, using fallback data.")
+    return [
+        "AI takes over creative industry",
+        "NVIDIA RTX 5090D world record",
+        "Netflix Black Mirror Game",
+        "Trump AI policy controversy",
+        "Nintendo Switch 2 leak"
+    ]
 
-# Step 2: Get top daily search trends
-trending_searches = pytrends.trending_searches(pn='united_states')  # You can change to 'nigeria', 'japan', etc.
-
-# Step 3: Print the top 10 trends
-print("Today's Top 10 Google Trends:")
-print(trending_searches.head(10))
+if __name__ == "__main__":
+    topics = fetch_trending_topics()
+    print("\n🔥 Trending Google Searches:")
+    for i, topic in enumerate(topics[:10], 1):
+        print(f"{i}. {topic}")
