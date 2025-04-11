@@ -1,6 +1,6 @@
 from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
 
-def load_local_model(model_name="EleutherAI/gpt-j-6B"):
+def load_local_model(model_name = "EleutherAI/gpt-neo-1.3B"):
     """
     Loads a strong text-generation model.
     Default is GPT-J 6B which is more powerful than GPT-Neo 1.3B.
@@ -46,7 +46,7 @@ Begin now:
 """
 
     # Load the GPT-J 6B model (this is a strong model that leverages your Codespace resources)
-    generator = load_local_model("EleutherAI/gpt-j-6B")
+    generator = load_local_model("EleutherAI/gpt-neo-1.3B")
 
     # Generate the script
     script = generate_script(prompt, generator)
