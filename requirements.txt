@@ -1,0 +1,7 @@
+transformers
+torch
+huggingface_hub
+edge-tts
+requests
+python-dotenv
+edge-tts
