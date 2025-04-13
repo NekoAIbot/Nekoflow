@@ -1,0 +1,6 @@
+This is a tool for AI professionals to tell stories about GPT-4 and its AI capabilities.
+
+Send a breakdown of how you generated this script to a development team member in your office.
+
+The AI script needs to be self-contained and must be clear and easy to understand.
+You will need to send a .pdf of the script to your development team member to ensure that the script is polished and fully understood.
