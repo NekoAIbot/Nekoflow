@@ -1,90 +1,85 @@
-# generate_scripts.py
 import os
-import json
-import re
-from pathlib import Path
-from time import sleep
-import requests
-from dotenv import load_dotenv
+from transformers import GPTNeoForCausalLM, GPT2Tokenizer
+import torch
 
-load_dotenv()
+# Load model and tokenizer once at the start
+print("🧠 Loading GPT-Neo 1.3B locally...")
+model_name = "EleutherAI/gpt-neo-1.3B"
+tokenizer = GPT2Tokenizer.from_pretrained(model_name)
+model = GPTNeoForCausalLM.from_pretrained(model_name)
+device = torch.device("cpu")
+model.to(device)
+print("✅ Model loaded!")
 
-LOCAL_LLM_URL = os.getenv("LOCAL_LLM_BASE_URL", "http://localhost:5000/v1")
-MAX_SCRIPTS_PER_NICHE = 3  # default, adjustable later via config
+# Define all current and future niches here
+niches = ["ai", "tech", "finance", "science", "cybersecurity"]
 
-def clean_filename(text):
-    return re.sub(r'[^\w\s-]', '', text).strip().lower().replace(' ', '_')
+def generate_refined_script(topic, niche):
+    """Generates a YouTube-ready script based on the input topic using GPT-Neo."""
+    prompt = (
+        f"Write a high-quality, human-like YouTube video script for the {niche} niche "
+        f"based on this topic:\n\n"
+        f"Title: {topic.strip()}\n\n"
+        f"The script should be engaging, natural, educational, and optimized for viewer retention. "
+        f"Use a friendly tone and storytelling style with facts, structure, and personality.\n\n"
+        f"Script:\n"
+    )
 
-def get_ranked_titles(filepath="ranked_topics.json"):
-    with open(filepath, "r", encoding="utf-8") as f:
-        return json.load(f)
+    inputs = tokenizer(prompt, return_tensors="pt", max_length=1024, truncation=True).to(device)
+    outputs = model.generate(
+        **inputs,
+        max_length=1024,
+        temperature=0.9,
+        top_p=0.95,
+        do_sample=True,
+        num_return_sequences=1,
+        pad_token_id=tokenizer.eos_token_id,
+    )
 
-def generate_prompt(title, tags):
-    niche = tags[0] if tags else "General"
-    prompt = f"""You're a professional script writer for a trending {niche} YouTube channel.
+    script = tokenizer.decode(outputs[0], skip_special_tokens=True)
+    return script[len(prompt):].strip()
 
-Generate a compelling script for the following video title:
-"{title}"
+def process_niche(niche):
+    """Processes all topics under a niche and generates scripts."""
+    niche_dir = os.path.join("trending_topics", niche)
+    output_dir = os.path.join("generated_scripts", niche)
+    os.makedirs(output_dir, exist_ok=True)
 
-Structure:
-- Hook the viewer in the first 10 seconds
-- Present the key points clearly
-- Add an interesting perspective
-- Wrap up with a memorable or thought-provoking line
+    for filename in os.listdir(niche_dir):
+        if filename.endswith(".txt"):
+            filepath = os.path.join(niche_dir, filename)
+            with open(filepath, "r", encoding="utf-8") as f:
+                topic = f.read().strip()
 
-Be concise, engaging, and informative.
-"""
-    return prompt.strip()
+            print(f"📝 Generating script for: {filename}")
+            script = generate_refined_script(topic, niche)
 
-def generate_script(title, tags):
-    prompt = generate_prompt(title, tags)
-    try:
-        response = requests.post(
-            f"{LOCAL_LLM_URL}/completions",
-            json={
-                "prompt": prompt,
-                "max_tokens": 600,  # lower token count for speed
-                "temperature": 0.8,
-                "stop": None
-            },
-            timeout=90  # increase timeout to 90 seconds
-        )
-        response.raise_for_status()
-        return response.json()["choices"][0]["text"].strip()
-    except Exception as e:
-        print(f"❌ Generation error for '{title}': {e}")
-        return None
+            output_path = os.path.join(output_dir, filename)
+            with open(output_path, "w", encoding="utf-8") as f:
+                f.write(script)
 
-def save_script(script, title, tags):
-    tag_folder = clean_filename(tags[0]) if tags else "uncategorized"
-    filename = clean_filename(title) + ".txt"
-    output_dir = Path("generated_scripts") / tag_folder
-    output_dir.mkdir(parents=True, exist_ok=True)
-    with open(output_dir / filename, "w", encoding="utf-8") as f:
-        f.write(script)
-    print(f"✅ Saved: {output_dir / filename}")
+def initialize_folders():
+    """Creates missing folders for all niches and adds a placeholder if empty."""
+    for niche in niches:
+        niche_dir = os.path.join("trending_topics", niche)
+        os.makedirs(niche_dir, exist_ok=True)
 
-def main():
-    print("🧠 Smart Script Generator")
-    titles_by_tag = {}
-
-    for entry in get_ranked_titles():
-        for tag in entry["tags"]:
-            tag = clean_filename(tag)
-            if tag not in titles_by_tag:
-                titles_by_tag[tag] = []
-            titles_by_tag[tag].append(entry)
-
-    for tag, entries in titles_by_tag.items():
-        print(f"\n🎯 Generating scripts for niche: {tag.upper()} (max {MAX_SCRIPTS_PER_NICHE})")
-        for entry in entries[:MAX_SCRIPTS_PER_NICHE]:
-            title = entry["title"]
-            tags = entry["tags"]
-            print(f"⚡ Generating script for: {title} {tags}")
-            script = generate_script(title, tags)
-            if script:
-                save_script(script, title, tags)
-            sleep(2)  # avoid hammering the LLM
+        # Add a placeholder topic if folder is empty
+        if not os.listdir(niche_dir):
+            placeholder_path = os.path.join(niche_dir, "sample_topic.txt")
+            with open(placeholder_path, "w", encoding="utf-8") as f:
+                f.write(f"Example topic for {niche} niche")
 
 if __name__ == "__main__":
-    main()
+    print("\n🚀 Generating refined YouTube scripts...\n")
+    initialize_folders()
+
+    for niche in niches:
+        print(f"\n🔍 Niche: {niche}")
+        niche_dir = os.path.join("trending_topics", niche)
+
+        if not os.listdir(niche_dir):
+            print(f"⚠️ No topics found in {niche_dir}. Skipping...")
+            continue
+
+        process_niche(niche)

@@ -1,0 +1,72 @@
+{
+    "ai": [
+      {
+        "channel_name": "Two Minute Papers",
+        "channel_id": "UC0rqucBdTuFTjJiefW5t-IQ"
+      },
+      {
+        "channel_name": "ColdFusion",
+        "channel_id": "UCLXo7UDZvByw2ixzpQCufnA"
+      },
+      {
+        "channel_name": "Lex Fridman",
+        "channel_id": "UCehAe46c8OGCr4Gv1rVokxw"
+      }
+    ],
+    "tech": [
+      {
+        "channel_name": "Linus Tech Tips",
+        "channel_id": "UCXuqSBlHAE6Xw-yeJA0Tunw"
+      },
+      {
+        "channel_name": "Mrwhosetheboss",
+        "channel_id": "UC9-y-6csu5WGm29I7JiwpnA"
+      },
+      {
+        "channel_name": "Marques Brownlee",
+        "channel_id": "UCLXo7UDZvByw2ixzpQCufnA"
+      }
+    ],
+    "finance": [
+      {
+        "channel_name": "Graham Stephan",
+        "channel_id": "UCaK6I4lmw2nSqylpIx7llYA"
+      },
+      {
+        "channel_name": "Andrei Jikh",
+        "channel_id": "UCsXVk37bltHxD1rDPwtNM8Q"
+      },
+      {
+        "channel_name": "Meet Kevin",
+        "channel_id": "UCJ4H4vN2Qbn3nxhcFv1aVUw"
+      }
+    ],
+    "science": [
+      {
+        "channel_name": "3Blue1Brown",
+        "channel_id": "UCYO_jab_esuFRV4b17AJtAw"
+      },
+      {
+        "channel_name": "Veritasium",
+        "channel_id": "UCYO_jab_esuFRV4b17AJtAw"
+      },
+      {
+        "channel_name": "Kurzgesagt – In a Nutshell",
+        "channel_id": "UCsXVk37bltHxD1rDPwtNM8Q"
+      }
+    ],
+    "cybersecurity": [
+      {
+        "channel_name": "Hak5",
+        "channel_id": "UC0DPYjH_Ouk-4B3hd2r0QgQ"
+      },
+      {
+        "channel_name": "Cyber Security Simplified",
+        "channel_id": "UC0zv8I68K8qdTeyccX75kGg"
+      },
+      {
+        "channel_name": "Computerphile",
+        "channel_id": "UC9-y-6csu5WGm29I7JiwpnA"
+      }
+    
+  
