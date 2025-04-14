@@ -1,136 +1,235 @@
+#!/usr/bin/env python3
 import os
-import json
 import time
+import json
+from datetime import datetime, timedelta
+
+import feedparser
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
+import praw
+import tweepy
+
 from dotenv import load_dotenv
 
-load_dotenv()  # Load environment variables from .env
+# Load environment variables
+load_dotenv()
 YOUTUBE_API_KEY = os.getenv("YOUTUBE_API_KEY")
+REDDIT_CLIENT_ID = os.getenv("REDDIT_CLIENT_ID")
+REDDIT_CLIENT_SECRET = os.getenv("REDDIT_CLIENT_SECRET")
+REDDIT_USER_AGENT = os.getenv("REDDIT_USER_AGENT")
+TWITTER_BEARER_TOKEN = os.getenv("TWITTER_BEARER_TOKEN")
 
-# Path constants
-NICHES_JSON = "niches.json"
+# ---------- CONFIGURATION ----------
 BASE_TRENDING_DIR = "trending_topics"
+NEWS_THRESHOLD = 10  # total topics required (news + YouTube + Reddit + Twitter)
+MAX_RESULTS_PER_SOURCE = 5
+PUBLISHED_AFTER = (datetime.utcnow() - timedelta(days=30)).isoformat("T") + "Z"
+# -----------------------------------
 
-# Number of videos to fetch per channel (you can adjust this)
-VIDEOS_PER_CHANNEL = 3
+# --- Candidate niches (a large set of candidate query keywords; you can later update this list automatically) ---
+candidate_niches = [
+    "call of duty", "cod mobile", "cod warzone", "apex legends", "fortnite", "pubg mobile",
+    "league of legends", "dota2", "overwatch", "valorant", "esports", "gaming", "indie games",
+    "retro gaming", "mobile gaming", "pc gaming", "console gaming", "streaming", "reaction",
+    "prank", "challenge", "short film", "book review", "literature", "instrumental", "cover music",
+    "original music", "movie review", "tv review", "tutorial", "programming", "coding",
+    "language learning", "sustainable", "eco friendly", "tech reviews", "gadgets", "lifestyle vlog",
+    "daily vlog", "travel vlog", "science experiments", "space", "engineering", "robotics",
+    "podcasting", "fashion design", "travel tips", "fitness challenges", "art", "crafts",
+    "self improvement", "mindset", "reality tv", "celeb news", "news analysis", "sports",
+    "interviews", "tech tutorials", "vfx", "animation tutorials", "3d design", "photography",
+    "filmmaking", "investigative journalism", "documentary filmmaking", "comedy sketches",
+    "standup comedy", "rants", "motivational speeches", "music instruments", "vlogging tutorials",
+    "entrepreneurship tips", "digital marketing", "social media tips", "social innovation",
+    "home decor", "gardening tips", "cooking recipes", "baking tutorials", "wine reviews",
+    "beer reviews", "celebrity", "makeup", "hairstyling", "skincare", "yoga", "meditation",
+    "mindfulness", "basketball", "football", "soccer", "baseball", "hockey", "cricket",
+    "rugby", "boxing", "mma", "business"
+    # … extend this list as desired.
+]
 
-def load_niches():
-    """
-    Load the niches dictionary from niches.json.
-    Expected structure: { niche_name: [ { "channel_name": ..., "channel_id": ... }, ... ], ... }
-    """
-    if os.path.isfile(NICHES_JSON):
-        with open(NICHES_JSON, "r", encoding="utf-8") as f:
-            niches = json.load(f)
-        return niches
-    else:
-        print(f"⚠️ {NICHES_JSON} not found. Exiting...")
-        exit(1)
+# --- Helper Functions ---
 
-def initialize_trending_folders(niches):
-    """
-    Ensure the base trending_topics folder and subfolders for each niche exist.
-    """
+def initialize_base_folders():
+    """Create the base folder for trending topics."""
     os.makedirs(BASE_TRENDING_DIR, exist_ok=True)
-    for niche in niches.keys():
-        niche_dir = os.path.join(BASE_TRENDING_DIR, niche)
-        os.makedirs(niche_dir, exist_ok=True)
 
 def get_youtube_service():
-    """
-    Create and return a YouTube API client using the provided API key.
-    """
-    return build("youtube", "v3", developerKey=YOUTUBE_API_KEY)
-
-def fetch_channel_trending_videos(youtube, channel_id):
-    """
-    Uses the YouTube API 'search.list' endpoint to fetch videos from a given channel.
-    Returns a list of topics (video titles) for the channel.
-    """
-    topics = []
+    """Initialize and return the YouTube API service."""
     try:
-        # The search list call returns a list of video resources for the channel.
-        request = youtube.search().list(
-            part="snippet",
-            channelId=channel_id,
-            maxResults=VIDEOS_PER_CHANNEL,
-            order="viewCount",
-            type="video"
-        )
-        response = request.execute()
-        items = response.get("items", [])
-        for item in items:
-            # Extract the video title and published time (for uniqueness) from snippet.
-            snippet = item.get("snippet", {})
-            title = snippet.get("title", "Untitled")
-            published_at = snippet.get("publishedAt", "unknown")
-            # You can combine these to create a unique topic string; adjust format as needed.
-            topic = f"{title} (Published: {published_at})"
-            topics.append(topic)
-    except HttpError as e:
-        error_details = e.error_details if hasattr(e, 'error_details') else str(e)
-        print(f"Error fetching videos for channel {channel_id}: {error_details}")
+        service = build("youtube", "v3", developerKey=YOUTUBE_API_KEY)
+        return service
     except Exception as e:
-        print(f"Unexpected error fetching videos for channel {channel_id}: {e}")
+        print(f"⚠️ Error initializing YouTube service: {e}")
+        return None
+
+def get_reddit_instance():
+    """Return a PRAW Reddit instance."""
+    try:
+        reddit = praw.Reddit(client_id=REDDIT_CLIENT_ID,
+                             client_secret=REDDIT_CLIENT_SECRET,
+                             user_agent=REDDIT_USER_AGENT)
+        return reddit
+    except Exception as e:
+        print(f"⚠️ Error initializing Reddit instance: {e}")
+        return None
+
+def get_twitter_client():
+    """Return a Tweepy client for Twitter API v2."""
+    try:
+        client = tweepy.Client(bearer_token=TWITTER_BEARER_TOKEN)
+        return client
+    except Exception as e:
+        print(f"⚠️ Error initializing Twitter client: {e}")
+        return None
+
+def fetch_google_news_topics(niche):
+    """Fetch topics from Google News RSS for the given niche."""
+    topics = []
+    rss_url = f"https://news.google.com/rss/search?q={niche}&hl=en-US&gl=US&ceid=US:en"
+    try:
+        feed = feedparser.parse(rss_url)
+        for entry in feed.entries[:MAX_RESULTS_PER_SOURCE]:
+            title = entry.get("title", "").strip()
+            published = entry.get("published", "unknown")
+            if title:
+                topic = f"{title} (Published: {published})"
+                topics.append(topic)
+    except Exception as e:
+        print(f"❌ Error fetching news topics for niche '{niche}': {e}")
     return topics
 
-def save_topics_for_niche(niche, channel_topics):
-    """
-    Saves each trending topic as a separate text file under trending_topics/<niche>/.
-    channel_topics: a dictionary { channel_id: [topic1, topic2, ...], ... }
-    """
+def fetch_youtube_topics_query(youtube, niche):
+    """Fetch topics from YouTube API using a query search."""
+    topics = []
+    try:
+        request = youtube.search().list(
+            part="snippet",
+            q=niche,
+            maxResults=MAX_RESULTS_PER_SOURCE,
+            order="viewCount",
+            type="video",
+            publishedAfter=PUBLISHED_AFTER
+        )
+        response = request.execute()
+        for item in response.get("items", []):
+            snippet = item.get("snippet", {})
+            title = snippet.get("title", "").strip()
+            published_at = snippet.get("publishedAt", "unknown")
+            if title:
+                topic = f"{title} (Published: {published_at})"
+                topics.append(topic)
+    except HttpError as e:
+        print(f"❌ Error fetching YouTube topics for niche '{niche}': {e}")
+    except Exception as e:
+        print(f"❌ Unexpected error fetching YouTube topics for niche '{niche}': {e}")
+    return topics
+
+def fetch_reddit_topics(reddit, niche):
+    """Fetch trending submission titles from a Reddit search for the given niche."""
+    topics = []
+    try:
+        # Searching across Reddit (you may tweak the search parameters)
+        query = niche
+        for submission in reddit.subreddit("all").search(query, sort="top", limit=MAX_RESULTS_PER_SOURCE):
+            title = submission.title.strip()
+            if title:
+                topic = f"{title} (Reddit)"
+                topics.append(topic)
+    except Exception as e:
+        print(f"❌ Error fetching Reddit topics for niche '{niche}': {e}")
+    return topics
+
+def fetch_twitter_topics(client, niche):
+    """Fetch recent tweets for the given niche. (Here we will use a simplified search.)"""
+    topics = []
+    try:
+        # Using Twitter recent search endpoint – note that Tweets must be public.
+        query = f'"{niche}" -is:retweet lang:en'
+        tweets = client.search_recent_tweets(query=query, max_results=MAX_RESULTS_PER_SOURCE)
+        if tweets.data:
+            for tweet in tweets.data:
+                text = tweet.text.strip().split("\n")[0]
+                topic = f"{text} (Tweet)"
+                topics.append(topic)
+    except Exception as e:
+        print(f"❌ Error fetching Twitter topics for niche '{niche}': {e}")
+    return topics
+
+def score_niche(niche, youtube, reddit, twitter):
+    """Return a score for the given niche based on the number of topics from each source."""
+    news_topics = fetch_google_news_topics(niche)
+    yt_topics = fetch_youtube_topics_query(youtube, niche) if youtube else []
+    reddit_topics = fetch_reddit_topics(reddit, niche) if reddit else []
+    twitter_topics = fetch_twitter_topics(twitter, niche) if twitter else []
+    total = len(news_topics) + len(yt_topics) + len(reddit_topics) + len(twitter_topics)
+    return total, news_topics, yt_topics, reddit_topics, twitter_topics
+
+def filter_trending_niches(candidate_niches, youtube, reddit, twitter):
+    """Return a dict of niches that score above the threshold."""
+    trending = {}
+    print("🔎 Evaluating candidate niches based on available trending topics...")
+    for niche in candidate_niches:
+        total, news_topics, yt_topics, reddit_topics, twitter_topics = score_niche(niche, youtube, reddit, twitter)
+        print(f"  - '{niche}' scored {total} (News: {len(news_topics)}, YouTube: {len(yt_topics)}, Reddit: {len(reddit_topics)}, Twitter: {len(twitter_topics)})")
+        if total >= NEWS_THRESHOLD:
+            trending[niche] = {
+                "news": news_topics,
+                "youtube": yt_topics,
+                "reddit": reddit_topics,
+                "twitter": twitter_topics
+            }
+    return trending
+
+def save_topics(niche, topics):
+    """Save topics as individual text files in trending_topics/<niche>."""
     niche_dir = os.path.join(BASE_TRENDING_DIR, niche)
-    for channel_id, topics in channel_topics.items():
-        for index, topic in enumerate(topics, start=1):
-            # Create a unique filename using the channel id and index
-            filename = f"{channel_id}_{index:03d}.txt"
-            filepath = os.path.join(niche_dir, filename)
-            try:
-                with open(filepath, "w", encoding="utf-8") as f:
-                    f.write(topic)
-                print(f"✅ Saved topic to {filepath}")
-            except Exception as e:
-                print(f"Error writing topic for channel {channel_id}: {e}")
+    os.makedirs(niche_dir, exist_ok=True)
+    unique_topics = list({t for t in topics if t})
+    unique_topics.sort()
+    for idx, topic in enumerate(unique_topics, start=1):
+        filename = f"{niche.replace(' ', '_')}_{idx:03d}.txt"
+        filepath = os.path.join(niche_dir, filename)
+        try:
+            with open(filepath, "w", encoding="utf-8") as f:
+                f.write(topic)
+            print(f"✅ Saved topic: {filepath}")
+        except Exception as e:
+            print(f"❌ Error saving topic {filepath}: {e}")
 
-def process_niche(niche, channels, youtube):
-    """
-    For a given niche and its list of channels, fetch trending video topics and save them.
-    """
-    print(f"\n🔍 Processing niche: {niche}")
-    channel_topics = {}  # Dictionary to hold topics per channel
-
-    for channel in channels:
-        channel_name = channel.get("channel_name", "Unknown Channel")
-        channel_id = channel.get("channel_id")
-        if not channel_id:
-            print(f"⚠️ Skipping channel {channel_name} (no channel_id provided)")
-            continue
-        print(f"Fetching videos for '{channel_name}' ({channel_id}) in niche '{niche}'...")
-        topics = fetch_channel_trending_videos(youtube, channel_id)
-        if topics:
-            channel_topics[channel_id] = topics
+def process_trending_niches(trending_niches):
+    """For each trending niche, combine topics from all sources and save them."""
+    for niche, sources in trending_niches.items():
+        print(f"\n🔍 Processing trending niche: {niche}")
+        combined = sources.get("news", []) + sources.get("youtube", []) \
+                   + sources.get("reddit", []) + sources.get("twitter", [])
+        if combined:
+            save_topics(niche, combined)
         else:
-            print(f"⚠️ No topics found for channel {channel_name}.")
-
-        # Sleep briefly to avoid hitting rate limits
-        time.sleep(1)
-
-    if channel_topics:
-        save_topics_for_niche(niche, channel_topics)
-    else:
-        print(f"⚠️ No trending topics were fetched for niche '{niche}'.")
+            print(f"⚠️ No topics to save for '{niche}'.")
 
 def main():
-    print("🚀 Fetching trending topics for all niches in niches.json...")
-    niches_data = load_niches()
-    initialize_trending_folders(niches_data)
+    print("🚀 Fetching trending topics for candidate niches...\n")
+    initialize_base_folders()
     youtube = get_youtube_service()
+    reddit = get_reddit_instance()
+    twitter = get_twitter_client()
+    trending_niches = filter_trending_niches(candidate_niches, youtube, reddit, twitter)
 
-    for niche, channels in niches_data.items():
-        process_niche(niche, channels, youtube)
+    if trending_niches:
+        print("\n✅ Trending niches identified:")
+        for niche in trending_niches:
+            count = (len(trending_niches[niche]["news"]) +
+                     len(trending_niches[niche]["youtube"]) +
+                     len(trending_niches[niche]["reddit"]) +
+                     len(trending_niches[niche]["twitter"]))
+            print(f"   • {niche} ({count} topics)")
+    else:
+        print("⚠️ No trending niches were found based on current criteria.")
 
-    print("✅ Finished fetching trending topics!")
+    process_trending_niches(trending_niches)
+    print("\n✅ Finished fetching and saving trending topics for all trending niches!")
 
 if __name__ == "__main__":
     main()
