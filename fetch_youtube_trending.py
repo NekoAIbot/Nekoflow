@@ -1,60 +1,54 @@
-import requests
 import os
-from dotenv import load_dotenv
+import json
+import requests
+import feedparser
+import hashlib
 
-# Load API keys from .env
-load_dotenv()
-API_KEY = os.getenv("YOUTUBE_API_KEY")
+HEADERS = {'User-Agent': 'Mozilla/5.0'}
+GOOGLE_NEWS_TEMPLATE = "https://news.google.com/rss/search?q={}&hl=en-US&gl=US&ceid=US:en"
 
-def get_youtube_trending(region_code="US", max_results=10):
-    url = "https://www.googleapis.com/youtube/v3/videos"
-    params = {
-        "part": "snippet,statistics",
-        "chart": "mostPopular",
-        "regionCode": region_code,
-        "maxResults": max_results,
-        "key": API_KEY
-    }
+def load_niches(json_path="niches.json"):
+    with open(json_path, "r", encoding="utf-8") as f:
+        return json.load(f)
 
-    response = requests.get(url, params=params)
+def safe_filename(text):
+    """Create a safe hashed filename for each topic."""
+    return hashlib.md5(text.encode()).hexdigest()[:12] + ".txt"
 
-    if response.status_code != 200:
-        print(f"Error {response.status_code}: {response.json()}")
-        return []
+def fetch_google_news(keyword):
+    url = GOOGLE_NEWS_TEMPLATE.format(keyword.replace(" ", "+"))
+    feed = feedparser.parse(url)
+    titles = []
+    for entry in feed.entries:
+        title = entry.title.strip()
+        if len(title) > 15:
+            titles.append(title)
+    return titles
 
-    trending_videos = response.json().get("items", [])
-    results = []
+def save_titles(niche, titles):
+    folder = os.path.join("trending_topics", niche)
+    os.makedirs(folder, exist_ok=True)
 
-    for video in trending_videos:
-        snippet = video["snippet"]
-        stats = video.get("statistics", {})
-        results.append({
-            "title": snippet["title"],
-            "channel": snippet["channelTitle"],
-            "category": snippet.get("categoryId", "N/A"),
-            "views": stats.get("viewCount", "N/A"),
-            "description": snippet.get("description", ""),
-            "video_url": f"https://www.youtube.com/watch?v={video['id']}"
-        })
+    for title in titles:
+        filename = safe_filename(title)
+        filepath = os.path.join(folder, filename)
+        if not os.path.exists(filepath):
+            with open(filepath, "w", encoding="utf-8") as f:
+                f.write(title)
 
-    return results
+def main():
+    print("🚀 Fetching trending topics for all niches in niches.json...")
+    niches = load_niches()
 
-# Example usage
+    for niche in niches:
+        print(f"🔍 Fetching for niche: {niche}")
+        titles = fetch_google_news(niche)
+        if not titles:
+            print(f"⚠️ No results found for: {niche}")
+            continue
+        save_titles(niche, titles[:10])  # Save top 10 per niche
+
+    print("\n✅ Finished fetching real trending topics!")
+
 if __name__ == "__main__":
-    regions = ["US", "NG", "IN", "GB", "JP", "BR", "FR", "DE", "ZA", "KE"]  # You can add more country codes here
-    all_trending = {}
-
-    print("\n🔥 Multi-Region YouTube Trends:\n")
-
-    for region in regions:
-        print(f"🌍 Region: {region}")
-        trending = get_youtube_trending(region_code=region, max_results=10)
-        all_trending[region] = trending
-
-        for i, video in enumerate(trending, 1):
-            print(f"{i}. {video['title']} ({video['views']} views)")
-            print(f"   By: {video['channel']}")
-            print(f"   Link: {video['video_url']}\n")
-
-    # You can now use all_trending as input for script generation, filtering, etc.
-
+    main()
