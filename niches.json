@@ -1,0 +1,605 @@
+{
+  "call_of_duty": [
+    { "channel_name": "Call of Duty Mobile Official", "channel_id": "UCm8AaA7Qmm5lwh9eLdrjQrw" },
+    { "channel_name": "COD Mobile Pro Tips", "channel_id": "UCjqvYgJnx5F3ylTjVF0iJ4w" },
+    { "channel_name": "COD Warzone Highlights", "channel_id": "UCsOatXU62_S2vtrd6G8D5PA" },
+    { "channel_name": "COD Strategy Central", "channel_id": "UCpnQ4oW3jQbSoj6gSVh9DkA" }
+  ],
+  "cod_mobile": [
+    { "channel_name": "COD Mobile Tactics", "channel_id": "UC_xIYDx1WOV9K-BaH7F1E2A" },
+    { "channel_name": "Mobile COD Highlights", "channel_id": "UCZoeJpcPo4vIOE1sIDfYcFA" },
+    { "channel_name": "COD Mobile Official", "channel_id": "UCm8AaA7Qmm5lwh9eLdrjQrw" },
+    { "channel_name": "COD Mobile Guides", "channel_id": "UCjqvYgJnx5F3ylTjVF0iJ4w" }
+  ],
+  "cod_warzone": [
+    { "channel_name": "Warzone Plays", "channel_id": "UCYF3mEULFvOq7Nn0XHUQxFg" },
+    { "channel_name": "Warzone Tips", "channel_id": "UC9XszXV8EeL4YwqaPZ5yu3g" },
+    { "channel_name": "Warzone Highlights", "channel_id": "UCgM92Omd1AdqotEzlB-SJtA" },
+    { "channel_name": "COD Warzone Official", "channel_id": "UCsOatXU62_S2vtrd6G8D5PA" }
+  ],
+  "apex_legends": [
+    { "channel_name": "Apex Legends Official", "channel_id": "UC2FooW-dEnBpOzTqN3KKd4w" },
+    { "channel_name": "Apex Tips", "channel_id": "UC6H16D5UqWOwg8doCJzKG5g" },
+    { "channel_name": "Apex Highlights", "channel_id": "UC3-J7arKWzayMCUACpzh6zg" },
+    { "channel_name": "Apex Legends Pro", "channel_id": "UCY89NvpzOghDoI0sEqD-V8w" }
+  ],
+  "fortnite": [
+    { "channel_name": "Fortnite", "channel_id": "UCaO6TYtlC-0ZWBQSRPvOKvg" },
+    { "channel_name": "Fortnite Tips", "channel_id": "UCiSjcjrT9c2i11wPiwOEmGg" },
+    { "channel_name": "Fortnite Highlights", "channel_id": "UC5BXee8BzbwPOGgO-zF0nLQ" },
+    { "channel_name": "Fortnite Pro Plays", "channel_id": "UCW2qEAXUiOAbz_9x0W9dQcg" }
+  ],
+  "pubg_mobile": [
+    { "channel_name": "PUBG Mobile Official", "channel_id": "UC1yqIu7ezoWQBLU9T0sLC7w" },
+    { "channel_name": "PUBG Mobile Tips", "channel_id": "UCpQ2X0T_bR3iUKaW4aJQy8A" },
+    { "channel_name": "PUBG Mobile Highlights", "channel_id": "UC3HraV_SrFZgKAQ3e_KLk5Q" },
+    { "channel_name": "PUBG Mobile Pro", "channel_id": "UC4Jv3sNbk07u2BkCcFhXW7Q" }
+  ],
+  "league_of_legends": [
+    { "channel_name": "League of Legends", "channel_id": "UCryoG6zpI6bb9Qba7SxXzpg" },
+    { "channel_name": "LoL Esports", "channel_id": "UCYd_3kCvwQxQnwZ9fZFD8HQ" },
+    { "channel_name": "LoL Highlights", "channel_id": "UCDKP0iEcnJspjr4lXf5X_QQ" },
+    { "channel_name": "LoL Pro Tips", "channel_id": "UCsgwMOkX6AgnU5o3P6lAxRQ" }
+  ],
+  "dota2": [
+    { "channel_name": "Dota 2", "channel_id": "UCg1Pf8aL5Z2zL1vMWVPUWxA" },
+    { "channel_name": "Dota2 Highlights", "channel_id": "UCt-qThdcO-3zFDLfzHUVn_w" },
+    { "channel_name": "Dota2 Pro Plays", "channel_id": "UC2aOZUGb59PRrOi2c9K5Qsw" },
+    { "channel_name": "Dota 2 Esports", "channel_id": "UCv9MEVeBgVdXimcHxwiRwqA" }
+  ],
+  "overwatch": [
+    { "channel_name": "Overwatch", "channel_id": "UCJrOtniJ0-NWz37R30urifQ" },
+    { "channel_name": "Overwatch Esports", "channel_id": "UCvKQ0y4e1J2jGdMcjbfKktw" },
+    { "channel_name": "OW Highlights", "channel_id": "UCWLnrHHvw50Y4slrSY8QFtg" },
+    { "channel_name": "Overwatch Pro Tips", "channel_id": "UCv9Z2t0v9f_El-3HpnRiLmg" }
+  ],
+  "valorant": [
+    { "channel_name": "Valorant Official", "channel_id": "UCip1v2lImA47C8t4sA5QN4w" },
+    { "channel_name": "Valorant Tactics", "channel_id": "UCtPK21rxYnUA6R2LxprqiDw" },
+    { "channel_name": "Valorant Highlights", "channel_id": "UCQF3uIQ-FVmz0bn6wCxfLKg" },
+    { "channel_name": "Valorant Pros", "channel_id": "UC3Jj5mEwZV-sK95uxQV8Z0A" }
+  ],
+  "esports_news": [
+    { "channel_name": "ESPN Esports", "channel_id": "UC6H16D5UqWOwg8doCJzKG5g" },
+    { "channel_name": "The Esports Observer", "channel_id": "UCFWklMdcXV_9YWQnI-3AIjg" },
+    { "channel_name": "Esports Talk", "channel_id": "UC4HwA5Osi7uMBKjaGvK9Mpw" },
+    { "channel_name": "Esports Insider", "channel_id": "UCX9eR_JJ71cCiRNb9VFQXhQ" },
+    { "channel_name": "Esports Today", "channel_id": "UCn0Z7OBMft_F0oyocJ0I21A" }
+  ],
+  "gamer_guides": [
+    { "channel_name": "GameSpot", "channel_id": "UCsjkpU0fDjDkTRaQ6H2cJfQ" },
+    { "channel_name": "IGN", "channel_id": "UCXIJ76iCl68N90oW6fappLA" },
+    { "channel_name": "Polygon", "channel_id": "UCcIQ4KyMN9PqgXFOG2gsBFw" },
+    { "channel_name": "Digital Foundry", "channel_id": "UCnR4wm6lbPszikvXEcG418A" },
+    { "channel_name": "Hardware Unboxed", "channel_id": "UCwmZiChSryoWQCZMIQezgWw" }
+  ],
+  "indie_games": [
+    { "channel_name": "Indie Game Squad", "channel_id": "UC1rS9dYVbQWaWeR5D_1hZGw" },
+    { "channel_name": "Indie Game Portal", "channel_id": "UC2aL9l3b3ZzPPVg3k9InS0w" },
+    { "channel_name": "Indie Game Reviews", "channel_id": "UCyo2WURR7aH-kO1zJ7Q5z_A" },
+    { "channel_name": "Indie Game Spotlight", "channel_id": "UC1JgBvUzFeTzz3nwtThZTyw" }
+  ],
+  "retro_gaming": [
+    { "channel_name": "Retro Game Squad", "channel_id": "UCq7-oNwnHE0LfL0WdpM9K4A" },
+    { "channel_name": "Classic Game Room", "channel_id": "UCzjhCGV5blTMxZbV0dgG1dw" },
+    { "channel_name": "Retro Rumble", "channel_id": "UCZh2W8EeHHcfwn95vCxki0w" },
+    { "channel_name": "Old School Gaming", "channel_id": "UC4rFvwf1I12AwM4w2oG2vLA" }
+  ],
+  "mobile_gaming": [
+    { "channel_name": "Mobile Gamer", "channel_id": "UCef-EfXxS8ZO1V3tT3PFBUw" },
+    { "channel_name": "App Gamer", "channel_id": "UCmq_cLNYyF723m3kJXp5y1A" },
+    { "channel_name": "TouchArcade", "channel_id": "UCP0S4C-7xcJyZ0AnlCCh6Nw" },
+    { "channel_name": "Gameranx", "channel_id": "UCzdOOF7Y9TDJPNIl-hqQXkg" },
+    { "channel_name": "Mobile Game Reviews", "channel_id": "UC3cLUeI-1NvQlvHxWeC6ajg" }
+  ],
+  "pc_gaming": [
+    { "channel_name": "PC Gamer", "channel_id": "UCi8e0iOVk1fEOogdfu4YgfA" },
+    { "channel_name": "IGN PC", "channel_id": "UC4Iv2hAUGE4G7A8eSy1bKzA" },
+    { "channel_name": "Digital Foundry", "channel_id": "UCnR4wm6lbPszikvXEcG418A" },
+    { "channel_name": "Hardware Unboxed", "channel_id": "UCwmZiChSryoWQCZMIQezgWw" }
+  ],
+  "console_gaming": [
+    { "channel_name": "GameSpot", "channel_id": "UCvQ7K1t6NoVvD5E8BdGvCSw" },
+    { "channel_name": "IGN", "channel_id": "UCXIJ76iCl68N90oW6fappLA" },
+    { "channel_name": "PlayStation Official", "channel_id": "UCy2AJkZ1qZun6bqrmqzcVkg" },
+    { "channel_name": "Xbox", "channel_id": "UCkx3ERmKBeH8E2EU0EsLx4w" }
+  ],
+  "streaming": [
+    { "channel_name": "Twitch", "channel_id": "UCcQQ7RUd1kShk__YiG6O3Wg" },
+    { "channel_name": "StreamScheme", "channel_id": "UC2JUwLEz28wQRP_AE0rvgIQ" },
+    { "channel_name": "Streamer Square", "channel_id": "UCoSdrC7GqkxNT8YrdF12U8A" },
+    { "channel_name": "LiveReact", "channel_id": "UCq0Eg2d1Di9h6FOPywGQP6g" }
+  ],
+  "reaction": [
+    { "channel_name": "React", "channel_id": "UCzY8UhlcE6WQLgVvZsL5QIA" },
+    { "channel_name": "Fine Brothers Entertainment", "channel_id": "UCkYtx6WosK1Vuy2I3xO3Wig" },
+    { "channel_name": "React World", "channel_id": "UCRPNaWqs9rJyfOX01F1dqlA" },
+    { "channel_name": "React Now", "channel_id": "UC2dFOhN7d1XY_U4R1WyGu0w" }
+  ],
+  "prank": [
+    { "channel_name": "PrankvsPrank", "channel_id": "UC5C9B_0Snu7AQJuq0U6CEkg" },
+    { "channel_name": "Just for Laughs Gags", "channel_id": "UCFXCZa-3p30UEKvm9OkX4cA" },
+    { "channel_name": "Impractical Jokers", "channel_id": "UCpK6ySu8mfSRbEx4YpU-inw" },
+    { "channel_name": "The Prank Channel", "channel_id": "UCd3Wut9IU6ni-pZ6anVXopw" }
+  ],
+  "challenge": [
+    { "channel_name": "BuzzFeedVideo", "channel_id": "UCp2O9r2MLnDLu8at2Zy4YWA" },
+    { "channel_name": "MrBeast", "channel_id": "UCX6OQ3DkcsbYNE6H8uQQuVA" },
+    { "channel_name": "Dude Perfect", "channel_id": "UCa2ecHn6gHc0dR-p5mpQN8A" },
+    { "channel_name": "Epic Challenges", "channel_id": "UCnK5Ud6siK5Jz-1F9o3uXkw" }
+  ],
+  "short_film": [
+    { "channel_name": "Short of the Week", "channel_id": "UCl9kruaX7JdVO6tXGmv7r0Q" },
+    { "channel_name": "Film Riot", "channel_id": "UCzoVCacV7yyW9uk8v9Kp8Vg" },
+    { "channel_name": "Indie Film Hustle", "channel_id": "UCawR3Ggqcm-57DW9fMJdeyA" },
+    { "channel_name": "Short Films Daily", "channel_id": "UCqF_JNvt8X0mDj_XLRZ4G1Q" }
+  ],
+  "book_review": [
+    { "channel_name": "BookTube", "channel_id": "UC6bOvJ-Hn9Hi3S70V5hbzFw" },
+    { "channel_name": "Better Than Food", "channel_id": "UC3sR6k2QtrD0TloHkyvepOA" },
+    { "channel_name": "PeruseProject", "channel_id": "UC4ZbTz5pWyD5-P_YKUP_wqA" },
+    { "channel_name": "Reading Vlogs", "channel_id": "UC7K1R3tH6S-0o9XAdnYswTQ" }
+  ],
+  "literature": [
+    { "channel_name": "CrashCourse Literature", "channel_id": "UCXdTC7t87gyULgCcvoC1R9g" },
+    { "channel_name": "Wisecrack", "channel_id": "UCWZx8lMhaznUrF8JgIRtAbw" },
+    { "channel_name": "The Book Club", "channel_id": "UC7ydLzqFLrM_N3l2ovMFG4A" },
+    { "channel_name": "LitCharts", "channel_id": "UC0kMmLLEL5H5P1WlYzPyEIQ" }
+  ],
+  "instrumental": [
+    { "channel_name": "Epic Music World", "channel_id": "UC9e9N7xqNQWF98EDd5jM5Zg" },
+    { "channel_name": "Audio Library", "channel_id": "UCht8qITGkBvXKsR1Byln-wA" },
+    { "channel_name": "Chillhop Music", "channel_id": "UCQwsp9IZL9m3xG2jWWfAcSg" },
+    { "channel_name": "Ambient Music", "channel_id": "UCp-F4tBJMNV--0ezJ8CJ43g" }
+  ],
+  "cover_music": [
+    { "channel_name": "Walk Off the Earth", "channel_id": "UCuvlRHLtBZ72p3N3ACa4Pyg" },
+    { "channel_name": "Boyce Avenue", "channel_id": "UCJjOChn1a2ydO7Ywqw3x4Mw" },
+    { "channel_name": "Conor Maynard", "channel_id": "UC5Lr6k7L2mg08e6zF1Pf3fw" }
+  ],
+  "original_music": [
+    { "channel_name": "Trap Nation", "channel_id": "UCN8LNjB1XWeo2Uc-CZoWz4w" },
+    { "channel_name": "Majestic Casual", "channel_id": "UCbBmRy9AFMRo5MDb7NDxchQ" },
+    { "channel_name": "ChilledCow", "channel_id": "UCSJ4gkVC6NrvII8umztf0Ow" },
+    { "channel_name": "Monstercat", "channel_id": "UC2Qw3K3Q-o0a5XnLudkD3Jw" }
+  ],
+  "movie_review": [
+    { "channel_name": "Chris Stuckmann", "channel_id": "UCJf9H6cRI0aJ8FV4x0KQmpg" },
+    { "channel_name": "Jeremy Jahns", "channel_id": "UCZVXgG85lxR-2lvAS104OFA" },
+    { "channel_name": "Screen Junkies", "channel_id": "UCy1f4m64dwC1wc0wFOs8Z7g" },
+    { "channel_name": "Film Crit Hulk", "channel_id": "UC_R4qZVyF5DreFuFQ5kXUJw" }
+  ],
+  "tv_review": [
+    { "channel_name": "Collider", "channel_id": "UCbqReCDMEgDFkg8mO5cPM7A" },
+    { "channel_name": "New Rockstars", "channel_id": "UCoxcjq-8xIDTYp3uz647V5A" },
+    { "channel_name": "Screen Rant", "channel_id": "UCmv8YkJJyVz1yG-Yd9b8G1g" },
+    { "channel_name": "The TV Diner", "channel_id": "UCw9Q6qeZXYETRb2n-P81LLQ" }
+  ],
+  "tutorial": [
+    { "channel_name": "CodeAcademy", "channel_id": "UCb8H9q5iT6b9tb9HnvtVbjw" },
+    { "channel_name": "freeCodeCamp", "channel_id": "UC8butISFwT-Wl7EV0hUK0BQ" },
+    { "channel_name": "Traversy Media", "channel_id": "UC29ju8bIPH5as8OGnQzwJyA" },
+    { "channel_name": "The Net Ninja", "channel_id": "UCW5YeuERMmlnqo4oq8vwUpg" }
+  ],
+  "programming": [
+    { "channel_name": "The Coding Train", "channel_id": "UCvjgXvBlbQiydffZU7m1_aw" },
+    { "channel_name": "Tech With Tim", "channel_id": "UC4JX40jDee_tINbkjycV4Sg" },
+    { "channel_name": "Corey Schafer", "channel_id": "UC-8Q8KuJdC5I-KNJEQhdmFA" },
+    { "channel_name": "CS Dojo", "channel_id": "UCxX9wt5FWQUAAz4UrysqK9A" }
+  ],
+  "coding": [
+    { "channel_name": "CS Dojo", "channel_id": "UCxX9wt5FWQUAAz4UrysqK9A" },
+    { "channel_name": "Programming with Mosh", "channel_id": "UCWv7vMbMWH4-V0ZXdmDpPBA" },
+    { "channel_name": "Academind", "channel_id": "UCBSyd8tXJoEJKIXfrwkPdbA" },
+    { "channel_name": "The Net Ninja", "channel_id": "UCW5YeuERMmlnqo4oq8vwUpg" }
+  ],
+  "language_learning": [
+    { "channel_name": "Learn English with Emma", "channel_id": "UCLt2RVRxih0kZAVm9enWBOw" },
+    { "channel_name": "Polyglot Progress", "channel_id": "UC9G1xJ7m5BvQmyu7Gx4N5Zw" },
+    { "channel_name": "FluentU", "channel_id": "UCwICbFtt7G1M3Kg4w0P8UJw" },
+    { "channel_name": "Easy Languages", "channel_id": "UCVtFOcK4W11Dj6q7h2-W3Zg" }
+  ],
+  "sustainable": [
+    { "channel_name": "Sustainability Illustrated", "channel_id": "UCGlTnY3NKwI1xArjA0IqT0A" },
+    { "channel_name": "Eco Boost", "channel_id": "UCX1sWBo8V5JFT3mi3P8C7tw" },
+    { "channel_name": "Green Planet", "channel_id": "UCmL4WhU4anW1_q6dOV0jSTQ" },
+    { "channel_name": "Eco Observer", "channel_id": "UC8l75y4mYkN19v5d9oN9Qdg" }
+  ],
+  "eco_friendly": [
+    { "channel_name": "Eco Warrior Princess", "channel_id": "UCpjLPQL-dlUpPXdE0DStV1Q" },
+    { "channel_name": "Minimalism", "channel_id": "UCvZG0s5WqKZ9ld-i56sW3ig" },
+    { "channel_name": "The Minimalists", "channel_id": "UCORfLcnspuTtjS6l4wFZK7g" },
+    { "channel_name": "Green Living", "channel_id": "UCvUE9H1cmMd3PWQRERz_Oxw" }
+  ],
+  "tech_reviews": [
+    { "channel_name": "Marques Brownlee", "channel_id": "UCBJycsmduvYEL83R_U4JriQ" },
+    { "channel_name": "Unbox Therapy", "channel_id": "UC1wceHHb3ibnz1VC0W4ek9w" },
+    { "channel_name": "Dave Lee", "channel_id": "UCVt3HDCmu9wV7B6zXxF0Whg" },
+    { "channel_name": "Austin Evans", "channel_id": "UC0vBXGSyV14uvJ4oq8vwUpg" },
+    { "channel_name": "Jonathan Morrison", "channel_id": "UCPh4WcK1qxIVdM651QgP2ug" }
+  ],
+  "gadgets": [
+    { "channel_name": "TechSource", "channel_id": "UCYv5m7wZunh7O8-ux0E9MRQ" },
+    { "channel_name": "SuperSaf", "channel_id": "UCnmWfy6LJ0FjqvZ7vQF8e2g" },
+    { "channel_name": "The Verge", "channel_id": "UCvC4D8onUfXzvjTOM-dBfEA" },
+    { "channel_name": "CNET", "channel_id": "UCqm3BQLlJfvkTsX_hvm0UmA" },
+    { "channel_name": "Digital Trends", "channel_id": "UC73hKy63hgYULM79loUz4pQ" }
+  ],
+  "lifestyle_vlog": [
+    { "channel_name": "Casey Neistat", "channel_id": "UCutwz7eCw97BpRX1-7xuO5g" },
+    { "channel_name": "FunForLouis", "channel_id": "UCyi8V1Bh3T8VFVV3btHVXTA" },
+    { "channel_name": "Roman Atwood", "channel_id": "UCdH2DMXBlJ8BqoWkmanWXtA" },
+    { "channel_name": "Daily Intros", "channel_id": "UC3SwW4bGUMRTKsC0Kkw_Efw" }
+  ],
+  "daily_vlog": [
+    { "channel_name": "David Dobrik", "channel_id": "UCmh5gdwCx6lN7gEC20leNVA" },
+    { "channel_name": "KSI", "channel_id": "UCOpNcN46UbXVtpKMrmU4Abg" },
+    { "channel_name": "MrBeast Vlogs", "channel_id": "UCX6OQ3DkcsbYNE6H8uQQuVA" },
+    { "channel_name": "Casey Neistat Daily", "channel_id": "UCjzHeG1KWoonmf9d5KBvSiw" }
+  ],
+  "travel_vlog": [
+    { "channel_name": "Kara and Nate", "channel_id": "UC4ijq8vwUpPWVZjg9Xw7G8g" },
+    { "channel_name": "Bucket List Family", "channel_id": "UC4bK-EeEifGrrdSLS73m1sQ" },
+    { "channel_name": "Mark Wiens", "channel_id": "UC1D3yDCEdTuc3MPJ2r9ItVg" },
+    { "channel_name": "Lost LeBlanc", "channel_id": "UCq2QwW2SkWnYVvddkJ7b9Sg" }
+  ],
+  "science_experiments": [
+    { "channel_name": "Mark Rober", "channel_id": "UC6nSFpj9HTCZ5t-N3Rm3-HA" },
+    { "channel_name": "The King of Random", "channel_id": "UCvInZx9h3jC2JzsIzoOebEQ" },
+    { "channel_name": "Steve Spangler Science", "channel_id": "UC4dsR7-efpuAU24QLqP2ifw" },
+    { "channel_name": "Smarter Every Day", "channel_id": "UC6107grRI4m0o2-emgoDnAA" }
+  ],
+  "space": [
+    { "channel_name": "NASA Goddard", "channel_id": "UC7_gcs09iThXybpVgjHZ_7g" },
+    { "channel_name": "SpaceX", "channel_id": "UCtI0Hodo5o5dUb67FeUjDeA" },
+    { "channel_name": "Scott Manley", "channel_id": "UCsTcErHg8oDvUnTzo3S4ZEA" },
+    { "channel_name": "Everyday Astronaut", "channel_id": "UC3wHOU9V8E2FOr6WXdO7FLA" }
+  ],
+  "engineering": [
+    { "channel_name": "Practical Engineering", "channel_id": "UCV0qA-eDDICsRR9rPriya_w" },
+    { "channel_name": "Engineering Explained", "channel_id": "UCEK8CcdD2jY4RABag1c3l7Q" },
+    { "channel_name": "The Engineering Mindset", "channel_id": "UCwg2sMBWHxER2H0JlxjLC5w" },
+    { "channel_name": "Learn Engineering", "channel_id": "UCqZQJ4600a9wIfMPbYc60OQ" }
+  ],
+  "robotics": [
+    { "channel_name": "Boston Dynamics", "channel_id": "UC2svmo-_l0u2HmkR3cQ6c8g" },
+    { "channel_name": "Robotics Trends", "channel_id": "UCt_NLKgKRf2e_z49-DlJtTg" },
+    { "channel_name": "IEEE Spectrum", "channel_id": "UCVx6RFaEAg46xfE-XAQ2z_Q" },
+    { "channel_name": "Robotics 101", "channel_id": "UCsIprKkXR8rMSzA2VtCqr0w" }
+  ],
+  "podcasting": [
+    { "channel_name": "Joe Rogan Experience", "channel_id": "UCzQUP1qoWDoEbmsQxvdjxgQ" },
+    { "channel_name": "The Tim Ferriss Show", "channel_id": "UCnqdROXcnc_l6zEysW2JoUg" },
+    { "channel_name": "Stuff You Should Know", "channel_id": "UCP_gzDXX7d9GmfrP9cZthgQ" },
+    { "channel_name": "The School of Greatness", "channel_id": "UCvdjKUlRM0YZkM-cQKvWPsA" }
+  ],
+  "fashion_design": [
+    { "channel_name": "Vogue Fashion", "channel_id": "UCjSVuVF1wHVMCEGfkDFWAUg" },
+    { "channel_name": "Fashion Insider", "channel_id": "UC2D3xICiVCxx8_bxEXVvj-w" },
+    { "channel_name": "Fashion Television", "channel_id": "UC3yT1E40HLz2J5N3yFqI2vA" },
+    { "channel_name": "The Business of Fashion", "channel_id": "UCtd4Wv0Z6xaSndRZXZBbpig" }
+  ],
+  "travel_tips": [
+    { "channel_name": "Expedia Travel Tips", "channel_id": "UCoL-1c6vF8AnQx0xJU5oZJg" },
+    { "channel_name": "Lonely Planet", "channel_id": "UC1xEJwoWRGQ9wLVb1H1xN5Q" },
+    { "channel_name": "Rick Steves' Europe", "channel_id": "UCsjpMG1FaLUkwY0EbF050dg" },
+    { "channel_name": "Travel Tips by Nomadic Matt", "channel_id": "UC66G6FHiw1XJvPg0O8s9hFw" }
+  ],
+  "fitness_challenges": [
+    { "channel_name": "Athlean-X", "channel_id": "UCqQF9nVo-cx6V4h4uIsax0w" },
+    { "channel_name": "MadFit Challenge", "channel_id": "UCDHDiRWLrT2b8CwUSNuySzw" },
+    { "channel_name": "Jeff Nippard", "channel_id": "UC68TLK0mAEzVyZN7rW0K-Qw" },
+    { "channel_name": "FitnessBlender", "channel_id": "UCVQZN-7qLZm1sA6_zm9Ti9Q" }
+  ],
+  "art": [
+    { "channel_name": "The Art Assignment", "channel_id": "UCd1MxSzbMy2YfEuwu4rA1xg" },
+    { "channel_name": "Nerdwriter1", "channel_id": "UCt0YIqwnpJCM-mx7-gSA4Jw" },
+    { "channel_name": "Bobby Duke Arts", "channel_id": "UCZiDD5Jj5W68TOtSF8UOHfw" },
+    { "channel_name": "Art Insider", "channel_id": "UCy-3Y8xDb0K1yFom3VYMW9Q" }
+  ],
+  "crafts": [
+    { "channel_name": "5-Minute Crafts", "channel_id": "UC295-Dw_tDNtZXFeAPAW6Aw" },
+    { "channel_name": "Crafty Panda", "channel_id": "UCtPHuf6RdhmNhKn8COJ1j0w" },
+    { "channel_name": "DIY Crafts", "channel_id": "UCyRyY8G4-7Zt8jb4KP_8ZRQ" },
+    { "channel_name": "Craft Life", "channel_id": "UCWvFhRkIgNXBkoG8j4sy3FA" }
+  ],
+  "self_improvement": [
+    { "channel_name": "TEDx Talks", "channel_id": "UCsT0YIqwnpJCM-mx7-gSA4Jw" },
+    { "channel_name": "Marie Forleo", "channel_id": "UC7aOZiOLhimM5KJ_E_WN22w" },
+    { "channel_name": "Mel Robbins", "channel_id": "UCbZm3nqWE5F7uEoywRzB3GQ" },
+    { "channel_name": "Improvement Pill", "channel_id": "UCt2Ly9XNrkTewF8syF2ChYQ" }
+  ],
+  "mindset": [
+    { "channel_name": "Mind Pump TV", "channel_id": "UCPvokZVYJruI9sNiI2J3IZA" },
+    { "channel_name": "Jay Shetty", "channel_id": "UCbV60AGIHKz2xIGvbk0LLvg" },
+    { "channel_name": "Tom Bilyeu", "channel_id": "UCmQ7HE7rTqfTZRytTVz3YBg" },
+    { "channel_name": "Mindset Mentor", "channel_id": "UC6BzqYBpr4C7A3v7XLb8GuA" }
+  ],
+  "gaming_guides": [
+    { "channel_name": "GameSpot", "channel_id": "UCsjkpU0fDjDkTRaQ6H2cJfQ" },
+    { "channel_name": "IGN", "channel_id": "UCXIJ76iCl68N90oW6fappLA" },
+    { "channel_name": "Polygon", "channel_id": "UCcIQ4KyMN9PqgXFOG2gsBFw" },
+    { "channel_name": "Digital Foundry", "channel_id": "UCnR4wm6lbPszikvXEcG418A" }
+  ],
+  "reality_tv": [
+    { "channel_name": "Bravo TV", "channel_id": "UC3F78fVbLpg_lWKCQbDfgDw" },
+    { "channel_name": "VH1", "channel_id": "UCepFv4g8k8Zt6E5A7mFZn9A" },
+    { "channel_name": "ET Live", "channel_id": "UCqtFgwU9GC9miE-QV4G1N9A" },
+    { "channel_name": "Reality TV Insider", "channel_id": "UC4M-6svw7KyKPgLjc9oDA7A" }
+  ],
+  "celeb_news": [
+    { "channel_name": "TMZ", "channel_id": "UCu_n7QVH2nO9QaX7S7GMFOw" },
+    { "channel_name": "E! News", "channel_id": "UCdtDAiDZ1xlzE7C6PZCRr6w" },
+    { "channel_name": "Entertainment Tonight", "channel_id": "UCwJZ8KNMdtPfAHD3t4UO4DA" },
+    { "channel_name": "PopSugar", "channel_id": "UCEnuKxChEEV8QBi-Wn6f9iA" }
+  ],
+  "news_analysis": [
+    { "channel_name": "VICE News", "channel_id": "UCzQUP1qoWDoEbmsQxvdjxgQ" },
+    { "channel_name": "CBS News", "channel_id": "UCmFm2Zzsq-k3JHvPu6P4YDQ" },
+    { "channel_name": "ABC News", "channel_id": "UCdT0B2qL3w8dxgHfUrbOgoQ" },
+    { "channel_name": "Reuters", "channel_id": "UCPXuiH9LZvb6rhEwn_R65XA" }
+  ],
+  "sports_highlights": [
+    { "channel_name": "House of Highlights", "channel_id": "UCaUDkhYYdKJKu3cK7YzcV1A" },
+    { "channel_name": "ESPN", "channel_id": "UCwXdFgeE9KYzlDdR7TG9cMw" },
+    { "channel_name": "Bleacher Report Basketball", "channel_id": "UCx3pW2mUHVcAQ6-tFbwTOAg" },
+    { "channel_name": "SportsCenter", "channel_id": "UCqv5jJx5ZB5jx8lKN_xBS5w" }
+  ],
+  "interviews": [
+    { "channel_name": "Hot Ones", "channel_id": "UC7dRE_t2H1YuxiK4PTd4TkA" },
+    { "channel_name": "The Breakfast Club", "channel_id": "UCZKb3pHyP4mPvWnqmQXRLyg" },
+    { "channel_name": "Kimmel", "channel_id": "UCqm3BQLlJfvkTsX_hvm0UmA" },
+    { "channel_name": "Snubbed", "channel_id": "UCaeiKfO6c_7f68bnBDz9yOw" }
+  ],
+  "tech_tutorials": [
+    { "channel_name": "Traversy Media", "channel_id": "UC29ju8bIPH5as8OGnQzwJyA" },
+    { "channel_name": "Programming with Mosh", "channel_id": "UCWv7vMbMWH4-V0ZXdmDpPBA" },
+    { "channel_name": "The Net Ninja", "channel_id": "UCW5YeuERMmlnqo4oq8vwUpg" },
+    { "channel_name": "CodeWithChris", "channel_id": "UC2D6eRvCeMtcF5OGHf1-trw" }
+  ],
+  "vfx": [
+    { "channel_name": "Corridor Crew", "channel_id": "UC7Rk1-mSQHWoMZzrso66k1w" },
+    { "channel_name": "Film Riot", "channel_id": "UCzoVCacV7yyW9uk8v9Kp8Vg" },
+    { "channel_name": "The Slow Mo Guys", "channel_id": "UCXIJ76iCl68N90oW6fappLA" }
+  ],
+  "animation_tutorials": [
+    { "channel_name": "Jazza", "channel_id": "UC8i7kPxnFp8DKVVU2pVUlMw" },
+    { "channel_name": "Alan Becker", "channel_id": "UC0MXk2nJhZu8ZoT5wkuJQfQ" },
+    { "channel_name": "Draw with Jazza", "channel_id": "UC8i7kPxnFp8DKVVU2pVUlMw" },
+    { "channel_name": "Cartooning Club How to Draw", "channel_id": "UCa1zu4sWhNAIp8Ny7PeoGYA" }
+  ],
+  "3d_design": [
+    { "channel_name": "Blender Guru", "channel_id": "UCBOycPU1k0bXo3tHaI2bYOw" },
+    { "channel_name": "Ducky 3D", "channel_id": "UC6nFCKOX4PIVV9NEnIRv2mw" },
+    { "channel_name": "CG Geek", "channel_id": "UCupvZG-5ko_eiXAupbDfxWw" },
+    { "channel_name": "Gleb Alexandrov", "channel_id": "UC2dCAXqgAW1z78_b1WXZICQ" }
+  ],
+  "photography": [
+    { "channel_name": "Mango Street", "channel_id": "UCqxnVn6Y6ukYTutQBGywm2g" },
+    { "channel_name": "Fstoppers", "channel_id": "UCtGcuZrU03hOKs_Ycyz6pRw" },
+    { "channel_name": "Peter McKinnon", "channel_id": "UC3DkFux8Iv-aYnTRWzwaiBA" },
+    { "channel_name": "The Art of Photography", "channel_id": "UCzm-3Ue4RKS0M3Bm7qFhjoQ" }
+  ],
+  "filmmaking": [
+    { "channel_name": "Film Riot", "channel_id": "UCzoVCacV7yyW9uk8v9Kp8Vg" },
+    { "channel_name": "Indy Mogul", "channel_id": "UCxQaWUmEv6DrqqkoIp72lVA" },
+    { "channel_name": "Lessons from the Screenplay", "channel_id": "UCZ3XqQHGxDdKwhxjfPzIQXA" },
+    { "channel_name": "Every Frame a Painting", "channel_id": "UC6tZ9cXVNvWYw7RLKUr5zVw" }
+  ],
+  "investigative_journalism": [
+    { "channel_name": "VICE News", "channel_id": "UCzQUP1qoWDoEbmsQxvdjxgQ" },
+    { "channel_name": "BBC News", "channel_id": "UC16niRr50-MSBwiO3YDb3RA" },
+    { "channel_name": "Al Jazeera English", "channel_id": "UCNye-wNBqNL5ZzHSJj3l8Bg" },
+    { "channel_name": "Truthdig", "channel_id": "UCJghKYh8v1yIYCCS95GIR8A" }
+  ],
+  "documentary_filmmaking": [
+    { "channel_name": "VICE", "channel_id": "UC6ey1N8dBSajLcmf0AeaTgQ" },
+    { "channel_name": "National Geographic", "channel_id": "UCpVm7bg6pXKo1Pr6k5kxG9A" },
+    { "channel_name": "BBC Earth", "channel_id": "UC7DUkBwZtJcTYjZ8OIkpZIw" },
+    { "channel_name": "Documentary Tube", "channel_id": "UC0DFibzM0B8f7-kF4mDAkig" }
+  ],
+  "comedy_sketches": [
+    { "channel_name": "Smosh", "channel_id": "UCp3Jpi4cbuqbxUO0lN93r7g" },
+    { "channel_name": "CollegeHumor", "channel_id": "UCtVd0c5cBwb2vww0Q7Z7eMA" },
+    { "channel_name": "Funny or Die", "channel_id": "UCL8kcl2nwM06vxcDqD6kjVw" },
+    { "channel_name": "Key & Peele", "channel_id": "UCY0SqQce83cL0wbPLNrYhnw" }
+  ],
+  "standup_comedy": [
+    { "channel_name": "Comedy Central Stand-Up", "channel_id": "UCG1pJgX8hReyiFFr0Rk2B-w" },
+    { "channel_name": "Netflix Is A Joke", "channel_id": "UCx8Jv3QSBxOVKqZxC59ndEQ" },
+    { "channel_name": "Live from the Laugh Factory", "channel_id": "UC6Nq9hHbTUxKMkKvW-NkrGg" },
+    { "channel_name": "Just For Laughs", "channel_id": "UCYs7tDLqd9--shwW2dHy6Yg" }
+  ],
+  "rants": [
+    { "channel_name": "Angry Video", "channel_id": "UCwT_e6MLbpS9nJL8k8rMZjg" },
+    { "channel_name": "Rant and Rave", "channel_id": "UC1D5QO9ZLFLZ5b5K2YhYkxw" },
+    { "channel_name": "Daily Rant", "channel_id": "UCi9ZP4oh-cF6E6rEwCj2p1A" },
+    { "channel_name": "Open Rant", "channel_id": "UCYrvdRhq0BnQKsm2hT8e4qg" }
+  ],
+  "motivational_speeches": [
+    { "channel_name": "Motiversity", "channel_id": "UCPfRzT9w0R6zKmyfTq-9w4w" },
+    { "channel_name": "Be Inspired", "channel_id": "UCqBAWQzkwCq1X2FnZWIo7Ww" },
+    { "channel_name": "Absolute Motivation", "channel_id": "UCyhcH2w4BpR04DqmqfYf1Yw" },
+    { "channel_name": "Eric Thomas", "channel_id": "UC4vIIdd4LXROD6gXGUYW4YQ" }
+  ],
+  "lifestyle_hacks": [
+    { "channel_name": "Lifehacker", "channel_id": "UCwP1SZOPk1op0Yfb5O4h1pg" },
+    { "channel_name": "BuzzFeed Nifty", "channel_id": "UC5gDOFXjG75nYFTnOD9F0QA" },
+    { "channel_name": "5-Minute Crafts", "channel_id": "UC295-Dw_tDNtZXFeAPAW6Aw" },
+    { "channel_name": "Simply Nailogical", "channel_id": "UCqx4fuS6JfR0i02ElXo_OwQ" }
+  ],
+  "travel_guides": [
+    { "channel_name": "Expedia", "channel_id": "UCoL-1c6vF8AnQx0xJU5oZJg" },
+    { "channel_name": "Lonely Planet", "channel_id": "UC1xEJwoWRGQ9wLVb1H1xN5Q" },
+    { "channel_name": "Rick Steves' Europe", "channel_id": "UCsjpMG1FaLUkwY0EbF050dg" },
+    { "channel_name": "Travel + Leisure", "channel_id": "UCk50e4UkIYVlN1zmclc84QA" }
+  ],
+  "home_decor": [
+    { "channel_name": "House & Home", "channel_id": "UC3MEhZ9l4k0F6zS-MRhEAVQ" },
+    { "channel_name": "Mr. Kate", "channel_id": "UC3EWPeLQezoS-lV7KzjOZzA" },
+    { "channel_name": "The Sorry Girls", "channel_id": "UCNSqnWFtB0lC1EDVvAbD5BA" },
+    { "channel_name": "Apartment Therapy", "channel_id": "UCNQKpaJ4kQNBnVFG0H0kB2w" }
+  ],
+  "gardening_tips": [
+    { "channel_name": "Epic Gardening", "channel_id": "UC0K9A0n7kzXuZXYN3wEBZsQ" },
+    { "channel_name": "Garden Answer", "channel_id": "UCj72cBF55pYcBW1vDoZSlOw" },
+    { "channel_name": "MIgardener", "channel_id": "UCph3zGhC4lX1_M5C1CkUqQg" },
+    { "channel_name": "The Rusted Garden", "channel_id": "UCJq1oJj8eXJLtFqPxAWvWJw" }
+  ],
+  "cooking_recipes": [
+    { "channel_name": "Tasty", "channel_id": "UCJFp8uSYCjXOMnkUyb3CQ3Q" },
+    { "channel_name": "Binging with Babish", "channel_id": "UCJHA_jMfCvEnv-3kRjTCQXw" },
+    { "channel_name": "Food Wishes", "channel_id": "UCUE_kJA0TLeWRw5mI6GkCIA" },
+    { "channel_name": "Bon Appétit", "channel_id": "UCbpMy0Fg74eXXkvxJrtEn3w" }
+  ],
+  "baking_tutorials": [
+    { "channel_name": "Preppy Kitchen", "channel_id": "UC3D1sQd-6V2n7zAIn2c7ywg" },
+    { "channel_name": "Cupcake Jemma", "channel_id": "UC1Cv_w46g9tIXbIp8a-1Zpg" },
+    { "channel_name": "How To Cake It", "channel_id": "UCCK2xC9o-qI2B4TJw5OgIlQ" },
+    { "channel_name": "Joy of Baking", "channel_id": "UCXr5rCrG5UtYkAgxBVfUQNA" }
+  ],
+  "wine_reviews": [
+    { "channel_name": "Wine Folly", "channel_id": "UCXco6BNrUkRwUcffFTqZzYg" },
+    { "channel_name": "GuildSomm", "channel_id": "UCf8XW17E2IjJ9Wf0dbBDwyg" },
+    { "channel_name": "The Wine Library TV", "channel_id": "UC5xQvzkXdLr6xI3rR1R1YNA" },
+    { "channel_name": "Wine Library", "channel_id": "UC6FkQKrMCD_0Z8AxYV5Z1yA" }
+  ],
+  "beer_reviews": [
+    { "channel_name": "Craft Beer Channel", "channel_id": "UCrkW49oX0RZ9gCnO2_JZcKg" },
+    { "channel_name": "The Beer Channel", "channel_id": "UCkHS5xS4wykN92FUXX0jqNw" },
+    { "channel_name": "Beer Bros", "channel_id": "UCp1K3FZ2vsh5_XF8EuwA1Mg" },
+    { "channel_name": "Beerology", "channel_id": "UCv6t8zKix6R8IW4V62BvVAg" }
+  ],
+  "celebrity": [
+    { "channel_name": "TMZ", "channel_id": "UCu_n7QVH2nO9QaX7S7GMFOw" },
+    { "channel_name": "E! News", "channel_id": "UCdtDAiDZ1xlzE7C6PZCRr6w" },
+    { "channel_name": "Entertainment Tonight", "channel_id": "UCwJZ8KNMdtPfAHD3t4UO4DA" },
+    { "channel_name": "PopSugar", "channel_id": "UCEnuKxChEEV8QBi-Wn6f9iA" }
+  ],
+  "makeup": [
+    { "channel_name": "NikkieTutorials", "channel_id": "UCVSwRUcKC-M35RzgPRv8qUg" },
+    { "channel_name": "Jeffree Star", "channel_id": "UCb1W9IpqbJkHN2d38XivF0w" },
+    { "channel_name": "Desi Perkins", "channel_id": "UCWbw2lybHrZ9In-VsxJAAeg" },
+    { "channel_name": "Lisa Eldridge", "channel_id": "UC1P3cz2iq6L8YUbiJv0ZQFg" }
+  ],
+  "hairstyling": [
+    { "channel_name": "Brad Mondo", "channel_id": "UC5qO2_c4bmPgeF1g1pDNF2g" },
+    { "channel_name": "Guy Tang", "channel_id": "UCMTL6QnGIYdwl-eJU_TsaxA" },
+    { "channel_name": "Mane Addicts", "channel_id": "UCwkTt-AZrsxQX5zR2wrFD8w" },
+    { "channel_name": "SimplyStyling", "channel_id": "UCb5Btz9At9LwBCE7bf74HvQ" }
+  ],
+  "skincare": [
+    { "channel_name": "Hyram", "channel_id": "UC2sYCKjJr3Sxkg2RNt4k-jw" },
+    { "channel_name": "Dr. Dray", "channel_id": "UCvn8Erjj35c8aPyPEl5oD4w" },
+    { "channel_name": "Mixed Makeup", "channel_id": "UCQDRmU-cwckIxoRRyZ53Wng" },
+    { "channel_name": "Lab Muffin Beauty Science", "channel_id": "UCp28c30VYG1G1h0p8YU5D3g" }
+  ],
+  "yoga": [
+    { "channel_name": "Yoga With Adriene", "channel_id": "UCbYdYwZpnom0eKl5wTKdU9w" },
+    { "channel_name": "Fightmaster Yoga", "channel_id": "UC5I7pKuPs_AkI9e5cdi3P3A" },
+    { "channel_name": "Boho Beautiful", "channel_id": "UCa40e2QdO4XIRTeXVFYvARw" },
+    { "channel_name": "Yoga With Tim", "channel_id": "UCdPvcl_RlB7X7tK-cF_6olw" }
+  ],
+  "meditation": [
+    { "channel_name": "Headspace", "channel_id": "UCZAq3Z76YbdgXSVVvGUVAgw" },
+    { "channel_name": "The Honest Guys", "channel_id": "UCtT4OsUH-jhrRi0EeVmElYw" },
+    { "channel_name": "Mindful Peace", "channel_id": "UCV3EUz_DcnP7F4QGQKrGq1w" },
+    { "channel_name": "Calm", "channel_id": "UCWtl3U8LM4TCxQb1R7yiy7w" }
+  ],
+  "mindfulness": [
+    { "channel_name": "The Mindful Movement", "channel_id": "UCV5d0IEOmj-U0EW2zZH0tOw" },
+    { "channel_name": "Mindful Living", "channel_id": "UCStTPYZzef3u6K7Twj8v5qQ" },
+    { "channel_name": "Zen Habits", "channel_id": "UC1UhWyqWgncxn0pM_Wzafaw" },
+    { "channel_name": "Calm", "channel_id": "UCWtl3U8LM4TCxQb1R7yiy7w" }
+  ],
+  "basketball": [
+    { "channel_name": "House of Highlights", "channel_id": "UCaUDkhYYdKJKu3cK7YzcV1A" },
+    { "channel_name": "ESPN Basketball", "channel_id": "UCdO7T2JIK1LZC5RVoTUyO2w" },
+    { "channel_name": "NBA", "channel_id": "UCWJ_1bG_WhenRoAexkLMhVhA" },
+    { "channel_name": "Bleacher Report Basketball", "channel_id": "UCx3pW2mUHVcAQ6-tFbwTOAg" }
+  ],
+  "football": [
+    { "channel_name": "NFL", "channel_id": "UCwXdFgeE9KYzlDdR7TG9cMw" },
+    { "channel_name": "ESPN Football", "channel_id": "UC4gTvkI0UIxPbLZlTqBENEQ" },
+    { "channel_name": "NFL Films", "channel_id": "UCbJytF2fNLLsmHOsw0ZaXWw" },
+    { "channel_name": "NFL Network", "channel_id": "UC9KUkRk4RkY66EUEsQ7dYQQ" }
+  ],
+  "soccer": [
+    { "channel_name": "FIFA TV", "channel_id": "UCkHrh5B5rbwprKSMw2ARp4g" },
+    { "channel_name": "UEFA", "channel_id": "UCeSJ3YwUw8RSvPK3dd5p-kg" },
+    { "channel_name": "ESPN FC", "channel_id": "UCvO9o6KKtiE3eHZcguP6QNg" },
+    { "channel_name": "Copa90", "channel_id": "UC-ov1Focbp82Vyr5a7ZKpFw" }
+  ],
+  "baseball": [
+    { "channel_name": "MLB", "channel_id": "UCL_9qUGEL0EbwDJhIJK6VqQ" },
+    { "channel_name": "Baseball Tonight", "channel_id": "UCifKODXuNA_GEMwS62CLZfw" },
+    { "channel_name": "MLB Network", "channel_id": "UCn4Xev_gd3Lhs7kL3Hq8BYQ" },
+    { "channel_name": "MLB Advanced Media", "channel_id": "UCf4kba3sdnYmjo9wEfJ3u9w" }
+  ],
+  "hockey": [
+    { "channel_name": "NHL", "channel_id": "UCWJ2lWNubArHWmf3FIHbFCQ" },
+    { "channel_name": "The Hockey News", "channel_id": "UC9ea3Aul6mnH-FpKqKDn7fw" },
+    { "channel_name": "NHL Network", "channel_id": "UCo_i1xM9qRVQe8S9x0dL4tw" },
+    { "channel_name": "HockeyBuzz", "channel_id": "UC-tpN2d2hmmvNhlxUhT3N6g" }
+  ],
+  "cricket": [
+    { "channel_name": "ESPNcricinfo", "channel_id": "UCwr4t6PafQx_PaqC-d9XRyg" },
+    { "channel_name": "ICC", "channel_id": "UC6bRw8feOVe6B7aVFJb6gkA" },
+    { "channel_name": "Cricket Highlights", "channel_id": "UC4n-5QzO8xYgjwxDIJ3CB3w" },
+    { "channel_name": "Cricingif", "channel_id": "UCWvP1XpufqAuk8j6z7MChag" }
+  ],
+  "rugby": [
+    { "channel_name": "World Rugby", "channel_id": "UC-BcjRE7xizfR-cpDcWsQKA" },
+    { "channel_name": "RugbyPass", "channel_id": "UCka9FVH6OI1r3SVp5R2pXJg" },
+    { "channel_name": "Rugby World Cup", "channel_id": "UCVCToGJTLFJOAOiHZ_8PD-w" },
+    { "channel_name": "The Rugby Pod", "channel_id": "UC0zT_5YH-sqpy84zK8gCmmg" }
+  ],
+  "boxing": [
+    { "channel_name": "Boxing Legends", "channel_id": "UCVot5c0aZCNB70MynRL5gMQ" },
+    { "channel_name": "Boxing News", "channel_id": "UCZpO3fjq7eJkDnuWfa6lgSg" },
+    { "channel_name": "Fight Hub TV", "channel_id": "UCd9-TgXgnqfp9Rx9KMYvN9A" },
+    { "channel_name": "The Sweet Science", "channel_id": "UCBr7T31PiP1hMsK6BDBgPNg" }
+  ],
+  "mma": [
+    { "channel_name": "UFC", "channel_id": "UCvcy3BzQ4V9z2F31XHLh4qw" },
+    { "channel_name": "MMA Fighting", "channel_id": "UCb5C9BK6dJABmMm6nfhwSRA" },
+    { "channel_name": "Bellator", "channel_id": "UCpWBeVjNJvU0_9m6zlwQO4Q" },
+    { "channel_name": "Fight Ready", "channel_id": "UCZCzg7YZ4GyciWgNiP0N7Bw" }
+  ],
+  "digital_marketing": [
+    { "channel_name": "Neil Patel", "channel_id": "UC8iPD5AQVqqm74DqJUY8d0Q" },
+    { "channel_name": "HubSpot", "channel_id": "UC4a-Gbdw7vOaccHmFo40b9g" },
+    { "channel_name": "Backlinko", "channel_id": "UCahzD8JIVGGq3t1kR2M8fPg" },
+    { "channel_name": "GaryVee", "channel_id": "UCcj9tSn8tCvM3PT7nbf8-6w" }
+  ],
+  "social_media_tips": [
+    { "channel_name": "Social Media Examiner", "channel_id": "UCNswNFdM9bsHafQLoQxLC1Q" },
+    { "channel_name": "Later", "channel_id": "UCpGfLQ0BEFALDofw62-yVvw" },
+    { "channel_name": "Hootsuite", "channel_id": "UCw5CxVm0exZI_FhMknrv4LQ" },
+    { "channel_name": "Buffer", "channel_id": "UCd3FkSIkloO7XS4K8SPTWig" }
+  ],
+  "social_innovation": [
+    { "channel_name": "TED", "channel_id": "UCsT0YIqwnpJCM-mx7-gSA4Jw" },
+    { "channel_name": "Stanford Social Innovation Review", "channel_id": "UCFVMVgg8Y3ICVNv4bHhqfZw" },
+    { "channel_name": "Ashoka", "channel_id": "UCbZghM3vXOsXvNZL__LV14g" },
+    { "channel_name": "The Do School", "channel_id": "UC7N1yTQd7BQ4zQ6UXp7Xnxg" }
+  ],
+  "music_instruments": [
+    { "channel_name": "Pianote", "channel_id": "UCID1w3zr0cv4mnEULdwuLVw" },
+    { "channel_name": "Drumeo", "channel_id": "UCuTj-EOXtIiikKnLDF82UxA" },
+    { "channel_name": "JustinGuitar", "channel_id": "UCa8SeBuNZqOVvYODHl7soWQ" },
+    { "channel_name": "Rick Beato", "channel_id": "UCJQuvVC3dOHb6r8_6bN9Rog" }
+  ],
+  "vlogging_tutorials": [
+    { "channel_name": "Casey Neistat", "channel_id": "UCutwz7eCw97BpRX1-7xuO5g" },
+    { "channel_name": "FunForLouis", "channel_id": "UCyi8V1Bh3T8VFVV3btHVXTA" },
+    { "channel_name": "Roman Atwood", "channel_id": "UCdH2DMXBlJ8BqoWkmanWXtA" },
+    { "channel_name": "Daily Vlogs", "channel_id": "UC3SwW4bGUMRTKsC0Kkw_Efw" }
+  ],
+  "entrepreneurship_tips": [
+    { "channel_name": "GaryVee", "channel_id": "UCcj9tSn8tCvM3PT7nbf8-6w" },
+    { "channel_name": "Valuetainment", "channel_id": "UCn8zNIfYAQNdrFRrr8oibKw" },
+    { "channel_name": "This Week in Startups", "channel_id": "UCzQUP1qoWDoEbmsQxvdjxgQ" },
+    { "channel_name": "Startup Grind", "channel_id": "UCIFXSeIvMReA1_dnvfHwv7Q" }
+  ]
+}

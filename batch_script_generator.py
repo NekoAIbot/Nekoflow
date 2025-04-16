@@ -2,49 +2,60 @@ from local_script_generator import load_local_model, generate_script
 from combine_sources import combine_sources
 import os
 
-# Choose 'fast' or 'smart'
-mode = "smart"  # Change to "smart" for GPT-Neo 1.3B
+# Set mode to "fast" which means using GPT-Neo 1.3B (adjust if needed)
+model_name = "EleutherAI/gpt-neo-1.3B"
 
-# Load trending titles
+# Fetch live trending titles (real headlines)
 titles = combine_sources()
 
-# Load model
-generator = load_local_model(size=mode)
+if not titles:
+    print("No trending titles found. Please check your sources.")
+    exit()
 
-# Folder to save scripts
+print("Live Trending Titles:")
+for i, t in enumerate(titles, 1):
+    print(f"{i}. {t}")
+
+# Load the selected model
+generator = load_local_model(model_name)
+print("Model loaded. Generating scripts...")
+
+# Create folder to save generated scripts
 os.makedirs("scripts", exist_ok=True)
 
+# Number of scripts to generate for testing
 limit = 3
 
 for i, title in enumerate(titles[:limit], start=1):
-    print(f"\n📌 Generating Script {i}: {title}\n")
-
+    print(f"\n📌 Generating Script {i} for headline:\n{title}\n")
     prompt = f"""
-You are a skilled YouTube scriptwriter known for making viral, engaging videos.
+You are a skilled YouTube scriptwriter specializing in tech content.
 
-Write a complete, compelling YouTube script based on this trending headline:
+Write an engaging, complete, and compelling YouTube script based on the following headline:
 "{title}"
 
-🧠 Guidelines:
-- Start with a bold hook that grabs attention.
-- Provide a short but powerful summary of the headline.
-- Use simple, dramatic language that speaks to the average viewer.
-- Include emotional and factual angles.
-- End with a call to action (like, comment, subscribe).
+Guidelines:
+- Begin with a bold hook to capture attention.
+- Provide a concise summary of the headline.
+- Use simple, dramatic language that appeals to a tech-savvy audience.
+- Include both emotional and factual angles.
+- End with a clear call-to-action (like, comment, and subscribe).
 
-🎯 Keep the entire script under 250 words.
+Keep the entire script under 250 words.
 Begin now:
 """
-
     script = generate_script(prompt, generator)
-    script = script.split("Begin now:")[-1].strip()
 
+    # Clean-up: Remove everything before (or including) "Begin now:" if echoed back.
+    if "Begin now:" in script:
+        script = script.split("Begin now:")[-1].strip()
+    
+    # Append a call to action if missing
     if "subscribe" not in script.lower():
         script += "\n\n💬 Don't forget to like, comment, and subscribe!"
+    
+    filename = f"script_{i}.txt"
+    with open(os.path.join("scripts", filename), "w", encoding="utf-8") as f:
+        f.write(f"{title}\n\n{script}")
 
-    # Save script
-    safe_title = f"script_{i}.txt"
-    with open(os.path.join("scripts", safe_title), "w", encoding="utf-8") as f:
-        f.write(f"📰 {title}\n\n{script}")
-
-    print(f"✅ Script {i} saved as {safe_title}")
+    print(f"✅ Script {i} saved as {filename}")
