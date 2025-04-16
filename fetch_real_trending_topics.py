@@ -1,3 +1,6 @@
+# Here's the **full updated script** with the fallback Twitter scraping method integrated:
+
+#```python
 #!/usr/bin/env python3
 import os
 import re
@@ -6,9 +9,14 @@ import time
 import random
 from datetime import datetime, timedelta, timezone
 from urllib.parse import quote_plus
+import ssl
+import requests
+from bs4 import BeautifulSoup
+
+# Disable SSL certificate verification (use cautiously)
+ssl._create_default_https_context = ssl._create_unverified_context
 
 import feedparser
-import snscrape.modules.twitter as sntwitter
 import praw
 import pandas as pd
 from pytrends.request import TrendReq
@@ -52,7 +60,6 @@ candidate_niches = [
 
 def initialize_base_folders():
     os.makedirs(BASE_TRENDING_DIR, exist_ok=True)
-    os.makedirs("backtest_data", exist_ok=True)
 
 def sanitize_query(query):
     return re.sub(r'\s+', '+', query)
@@ -66,9 +73,11 @@ def get_youtube_service():
 
 def get_reddit_instance():
     try:
-        return praw.Reddit(client_id=REDDIT_CLIENT_ID,
-                           client_secret=REDDIT_CLIENT_SECRET,
-                           user_agent=REDDIT_USER_AGENT)
+        return praw.Reddit(
+            client_id=REDDIT_CLIENT_ID,
+            client_secret=REDDIT_CLIENT_SECRET,
+            user_agent=REDDIT_USER_AGENT
+        )
     except Exception as e:
         print(f"⚠️ Reddit service error: {e}")
         return None
@@ -89,10 +98,11 @@ def fetch_google_news_topics(niche):
 
 def fetch_youtube_topics(youtube, niche):
     topics = []
+    query = sanitize_query(niche)
     try:
         request = youtube.search().list(
             part="snippet",
-            q=sanitize_query(niche),
+            q=query,
             maxResults=MAX_RESULTS_PER_SOURCE,
             order="viewCount",
             type="video",
@@ -100,92 +110,114 @@ def fetch_youtube_topics(youtube, niche):
         )
         response = request.execute()
         for item in response.get("items", []):
-            title = item.get("snippet", {}).get("title", "").strip()
-            published = item.get("snippet", {}).get("publishedAt", "unknown")
+            snippet = item.get("snippet", {})
+            title = snippet.get("title", "").strip()
+            published = snippet.get("publishedAt", "unknown")
             if title:
                 topics.append(f"{title} (Published: {published})")
-    except Exception as e:
+    except HttpError as e:
         print(f"❌ YouTube error for '{niche}': {e}")
+    except Exception as e:
+        print(f"❌ Unexpected YouTube error for '{niche}': {e}")
     return topics
 
 def fetch_reddit_topics(reddit, niche):
     topics = []
     try:
         for submission in reddit.subreddit("all").search(niche, sort="top", limit=MAX_RESULTS_PER_SOURCE):
-            topics.append(f"{submission.title.strip()} (Reddit)")
+            title = submission.title.strip()
+            if title:
+                topics.append(f"{title} (Reddit)")
     except Exception as e:
         print(f"❌ Reddit error for '{niche}': {e}")
     return topics
 
 def fetch_twitter_topics(niche):
-    topics = []
-    try:
-        for i, tweet in enumerate(sntwitter.TwitterSearchScraper(f'"{niche}" lang:en').get_items()):
-            if i >= MAX_RESULTS_PER_SOURCE:
-                break
-            topics.append(f"{tweet.content.strip().splitlines()[0]} (Tweet)")
-    except Exception as e:
-        print(f"❌ Twitter scrape error for '{niche}': {e}")
-    return topics
-
-def fetch_google_trends_topics(niche):
+    """Fallback: Scrape Nitter (Twitter frontend) for tweet previews."""
     topics = []
     delay = 5
-    for attempt in range(3):
+    max_attempts = 3
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+    }
+    query = f'"{niche}" lang:en'
+    search_url = f"https://nitter.net/search?f=tweets&q={quote_plus(query)}"
+
+    for attempt in range(max_attempts):
+        try:
+            response = requests.get(search_url, headers=headers, verify=False, timeout=10)
+            soup = BeautifulSoup(response.content, "html.parser")
+            tweets = soup.select("div.timeline-item > div.tweet-content")
+
+            for i, tweet in enumerate(tweets[:MAX_RESULTS_PER_SOURCE]):
+                content = tweet.get_text(strip=True).splitlines()[0]
+                topics.append(f"{content} (Tweet)")
+
+            break  # Success
+        except Exception as e:
+            print(f"🔁 Fallback Twitter scrape error for '{niche}' on attempt {attempt+1}/{max_attempts}: {e}")
+            time.sleep(delay)
+            delay *= 2
+    return topics
+
+def fetch_google_trends(niche):
+    topics = []
+    delay = 5
+    max_attempts = 3
+    for attempt in range(max_attempts):
         try:
             pytrend = TrendReq(hl='en-US', tz=360)
             pytrend.build_payload([niche], cat=0, timeframe='now 7-d', geo='', gprop='')
             trends = pytrend.interest_over_time()
             if not trends.empty:
-                trends_list = trends[niche].to_list()
+                trends_list = trends[niche].tolist()
                 if max(trends_list) > 50:
                     topics.append(f"{niche} trending on Google Trends")
-            break  # success, exit loop
+            break
         except Exception as e:
             print(f"🔁 Google Trends error for '{niche}', retrying in {delay}s... ({e})")
             time.sleep(delay)
             delay *= 2
     return topics
 
-def fetch_trending_topics_for_niche(niche, youtube, reddit, twitter):
+def fetch_trending_topics_for_niche(niche, youtube, reddit):
     topics = set()
-    try: topics.update(fetch_google_news_topics(niche))
-    except: pass
-    try: topics.update(fetch_youtube_topics(youtube, niche)) if youtube else None
-    except: pass
-    try: topics.update(fetch_reddit_topics(reddit, niche)) if reddit else None
-    except: pass
-    try: topics.update(fetch_twitter_topics(niche))
-    except: pass
-    try: topics.update(fetch_google_trends_topics(niche))
-    except: pass
+    topics.update(fetch_google_news_topics(niche))
+    if youtube:
+        topics.update(fetch_youtube_topics(youtube, niche))
+    if reddit:
+        topics.update(fetch_reddit_topics(reddit, niche))
+    topics.update(fetch_twitter_topics(niche))
+    topics.update(fetch_google_trends(niche))
     return list(topics)
 
 def save_topics(niche, topics):
-    directory = os.path.join(BASE_TRENDING_DIR, niche)
-    os.makedirs(directory, exist_ok=True)
-    for idx, topic in enumerate(sorted(set(topics)), 1):
-        filename = os.path.join(directory, f"{niche.replace(' ', '_')}_{idx:03d}.txt")
+    niche_dir = os.path.join(BASE_TRENDING_DIR, niche)
+    os.makedirs(niche_dir, exist_ok=True)
+    for idx, topic in enumerate(sorted(set(topics)), start=1):
+        filename = os.path.join(niche_dir, f"{niche.replace(' ', '_')}_{idx:03d}.txt")
         try:
             with open(filename, "w", encoding="utf-8") as f:
                 f.write(topic)
             print(f"✅ Saved topic: {filename}")
         except Exception as e:
-            print(f"❌ Error saving {filename}: {e}")
+            print(f"❌ Error saving topic {filename}: {e}")
 
-def process_niches(niches, youtube, reddit, twitter):
+def process_niches(niches, youtube, reddit):
     all_trending = {}
     print("🔎 Evaluating candidate niches based on available trending topics...\n")
     for niche in niches:
-        print(f"\n🔍 Processing niche: {niche}")
-        topics = fetch_trending_topics_for_niche(niche, youtube, reddit, twitter)
+        print(f"🔍 Processing niche: {niche}")
+        topics = fetch_trending_topics_for_niche(niche, youtube, reddit)
         score = len(topics)
         print(f"  - '{niche}' scored {score} topics")
         if score >= NEWS_THRESHOLD:
             save_topics(niche, topics)
             all_trending[niche] = topics
         else:
-            print(f"⚠️ Not enough topics for '{niche}' ({score} found)")
+            print(f"⚠️ Not enough topics for '{niche}' ({score} found). Skipping...")
+        time.sleep(random.uniform(2, 5))
+    os.makedirs("backtest_data", exist_ok=True)
     with open("backtest_data/trending_data.json", "w", encoding="utf-8") as f:
         json.dump(all_trending, f, indent=2)
     return all_trending
@@ -195,8 +227,7 @@ def main():
     initialize_base_folders()
     youtube = get_youtube_service()
     reddit = get_reddit_instance()
-    twitter = None  # no API needed with snscrape
-    trending = process_niches(candidate_niches, youtube, reddit, twitter)
+    trending = process_niches(candidate_niches, youtube, reddit)
     if trending:
         print("\n✅ Trending niches and topics have been saved successfully!")
     else:
@@ -204,3 +235,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+#```
+
+# Let me know if you want the script split into modules or logs saved to file instead of just printing.
