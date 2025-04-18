@@ -4,4 +4,10 @@ huggingface_hub
 edge-tts
 requests
 python-dotenv
-edge-tts
+feedparser
+git+https://github.com/JustAnotherArchivist/snscrape.git
+praw
+pandas
+pytrends
+google-api-python-client
+python-dotenv
